@@ -7,7 +7,7 @@ function AllUsers () {
     const[allUsers, setAllUsers]=useState("");
     
     const getUsers = async() => {
-        const response=await axios.get("http://localhost5000/getUsers");
+        const response=await axios.get("http://localhost:5000/getUsers");
         setAllUsers(response.data);
     }
 
