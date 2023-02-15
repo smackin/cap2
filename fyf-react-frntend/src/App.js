@@ -1,4 +1,4 @@
-import { BrowserRouter, Route} from "react-router-dom";
+import { Route} from "react-router-dom";
 import './App.css';
 import React from 'react';
 import Navbar from "./Navbar";
@@ -14,8 +14,7 @@ import AllUsers from "./AllUsers";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar/>
+      <Navbar/>
         <Route exact path='/login'>
           <LoginForm/>
         </Route>
@@ -28,8 +27,6 @@ function App() {
         <Route exact path='/'>
           <Home/>
         </Route>
-      </BrowserRouter>
-
     </div>
   );
 }

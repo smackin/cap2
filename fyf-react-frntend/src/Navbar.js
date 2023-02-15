@@ -5,10 +5,11 @@ import './Navbar.css';
 const Navbar = () => {
     return(
         <nav className="Navbar"> 
-        <NavLink exact to="/register">Sign Up</NavLink>
-        <NavLink exact to="/login">Sign In</NavLink>
-        <NavLink exact to="/getusers">All Users</NavLink>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/register">Sign Up</NavLink>
+        <NavLink to="/login">Sign In</NavLink>
+        <NavLink to="/getusers">All Users</NavLink>
+
         </nav>
     )
 }
