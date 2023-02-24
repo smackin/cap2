@@ -16,7 +16,7 @@ function Home () {
         </blockquote>
 
         <img src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGFkdmVudHVyZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60" class="rounded mx-auto d-block shadow-sm p-3 mb-5 bg-body rounded" alt="rv"/>
-
+        
         </div>
         
     );

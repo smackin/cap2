@@ -6,9 +6,7 @@ import Home from "./Home";
 import LoginForm from "./Login";
 import UserRegisterForm from "./Register";
 import AllUsers from "./AllUsers";
-
-
-
+import User from "./User";
 
 
 function App() {
@@ -26,6 +24,9 @@ function App() {
         </Route>
         <Route exact path='/'>
           <Home/>
+        </Route>
+        <Route exact path='/user/:user_id'>
+          <User/>
         </Route>
     </div>
   );
