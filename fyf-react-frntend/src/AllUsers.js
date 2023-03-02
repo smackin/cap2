@@ -8,7 +8,7 @@ function AllUsers () {
     const[allUsers, setAllUsers]=useState([]);
     
     const getUsers = async () => {
-        const response=await axios.get("/getUsers");
+        const response=await axios.get("/user");
         // console.log(response.stack)
         setAllUsers(response.data.allUsers);
     }
@@ -20,7 +20,7 @@ function AllUsers () {
         <div>
         {allUsers.map(user => <div 
             key={user.user_id}>
-            <Link>{user.users_name} {user.user_id}</Link>
+            <Link path="/user/${user_id}">{user.users_name} {user.user_id}</Link>
             </div>)}
         </div>
     )

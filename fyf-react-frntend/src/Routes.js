@@ -1,0 +1,22 @@
+import { Route} from "react-router-dom";
+import './App.css';
+import React from 'react';
+import Home from "./Home";
+import LoginForm from "./Login";
+import UserRegisterForm from "./Register";
+import AllUsers from "./AllUsers";
+import User from "./User";
+
+function Routes() {
+    return (
+        <>
+        <Route  path='/login'><LoginForm/></Route>
+        <Route exact path='/register'><UserRegisterForm/></Route>
+        <Route exact path='/user'><AllUsers/></Route>
+        <Route exact path='/'><Home/></Route>
+        <Route exact path='/user/:user_id'><User/></Route>
+        </>
+    )
+}
+
+export default Routes; 
