@@ -20,7 +20,11 @@ function AllUsers () {
         <div>
         {allUsers.map(user => <div 
             key={user.user_id}>
-            <Link path="/user/${user_id}">{user.users_name} {user.user_id}</Link>
+            <div>
+            <p>{user.user_id}</p>
+            <p>{user.users_name}  </p>
+            <Link to={`/user/${user.user_id}`}>{user.username}</Link>
+            </div>
             </div>)}
         </div>
     )
