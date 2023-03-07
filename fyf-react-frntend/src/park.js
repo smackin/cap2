@@ -1,6 +1,4 @@
-//  this route will take an activity code from the user.js page and display all parks with that activity
 
-// this route will display a user in the db based on userId in params.
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';

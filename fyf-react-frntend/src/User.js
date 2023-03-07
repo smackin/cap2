@@ -85,8 +85,9 @@ function User() {
     }, []);
     
     const submitActivity = () => {
-        const park_id = selectRef.current.value;
-        history.push(`/park/${park_id}`);
+        const activity_id = selectRef.current.value;
+        const activity = selectRef.current.name;
+        history.push(`/park/${activity_id}`);
     }
 
     return (
@@ -101,7 +102,7 @@ function User() {
 
 
             <img src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="img" />
-            <h4> Find your Favorite Places </h4>
+            <h3> Select your Activity </h3>
             {/* <Link to=""> National Park </Link> */}
 
             <form>
@@ -113,7 +114,7 @@ function User() {
                             {activities.map(activity => <option value={activity[0]}>{activity[1]}</option>)}
                         </select>
 
-                        <button class="btn btn-primary btn-sm" onClick={submitActivity}>Submit Form</button>
+                        <button class="btn btn-primary btn-sm" onClick={submitActivity}>Find a Park! </button>
                     </div>
                 </div>
             </form>
