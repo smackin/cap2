@@ -6,6 +6,7 @@ import LoginForm from "./Login";
 import UserRegisterForm from "./Register";
 import AllUsers from "./AllUsers";
 import User from "./User";
+import Parks from "./parks";
 
 function Routes() {
     return (
@@ -14,6 +15,7 @@ function Routes() {
         <Route exact path='/register'><UserRegisterForm/></Route>
         <Route exact path='/user'><AllUsers/></Route>
         <Route exact path='/'><Home/></Route>
+        <Route exact path='/parks'><Parks/></Route>
         <Route exact path='/user/:user_id'><User/></Route>
         </>
     )
