@@ -1,14 +1,15 @@
 // this route will display a user in the db based on userId in params.
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import API from "./Api"
 
 function User() {
     let { user_id } = useParams();
     let history = useHistory();
 
     const initialState = {
-        users_name: "",
+        first_name: "",
+        last_name: "",
         username: "",
         email: "",
         state: ""
@@ -65,17 +66,11 @@ function User() {
     useEffect(() => {
         // declare the data fetching function
 
-
         const getThisUser = async () => {
 
-            const response = await axios.get(`/user/${user_id}`)
-            setUserInfo(response.data.allUsers[0])
-            // console.log(response.stack)s
-
-            console.log(response.data.allUsers)
-            console.log(response.data.allUsers[0])
-            console.log(response.data.allUsers[0].username)
-            console.log(response.data.allUsers[0].email)
+            const response = await API.getUserById(user_id);
+            setUserInfo(response)
+            console.log(response)
         };
 
         // call the function
@@ -92,29 +87,28 @@ function User() {
 
     return (
         <div className="user_profile">
-            <h3> Welcome Back</h3>
+            <h3> Welcome Back, {userInfo.username} </h3>
             {/* // should display username */}
-            <h4>  {userInfo.username}  </h4>
 
-            <p>Name: {userInfo.users_name} </p>
+            <p>Name: {userInfo.first_name} </p>
             <p>Email:{userInfo.email} </p>
             <p>Location: {userInfo.state} </p>
 
 
-            <img src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="img" />
-            <h3> Select your Activity </h3>
+            <img src="https://images.unsplash.com/photo-1505782388-8632b3423dbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZXhwbG9yZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60" alt="img" width="300" height="400" />
+            <h3> What are you looking to do today? </h3>
             {/* <Link to=""> National Park </Link> */}
 
             <form>
-                <div class="form-row">
-                    <div class="col-lg-7 px-5">
+                <div className="form-row">
+                    <div className="col-lg-7 px-5">
 
 
                         <select ref={selectRef}>
-                            {activities.map(activity => <option value={activity[0]}>{activity[1]}</option>)}
+                            {activities.map(activity => <option key={activity[0]} value={activity[0]}>{activity[1]}</option>)}
                         </select>
 
-                        <button class="btn btn-primary btn-sm" onClick={submitActivity}>Find a Park! </button>
+                        <button className="btn btn-primary btn-sm" onClick={submitActivity}>Find a Park! </button>
                     </div>
                 </div>
             </form>

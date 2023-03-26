@@ -11,7 +11,7 @@ import Park from "./park";
 function Routes() {
     return (
         <>
-        <Route  exact path='/login'><LoginForm/></Route>
+        <Route exact path='/login'><LoginForm/></Route>
         <Route exact path='/register'><UserRegisterForm/></Route>
         <Route exact path='/user'><AllUsers/></Route>
         <Route exact path='/'><Home/></Route>
