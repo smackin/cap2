@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.get('/getUsers', async (req, res) => {
     try  {
-	const res.send = await db.query(`SELECT * FROM fyfreactapp_users`);
+	const res = await db.query(`SELECT * FROM fyfreactapp_users`);
 
 	return res.json(results.rows);
 } catch (error) {
