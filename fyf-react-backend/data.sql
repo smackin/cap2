@@ -1,16 +1,13 @@
--- drop db if exists in order to run seed file
 DROP DATABASE IF EXISTS fyfreactdb;
 
--- Create the db
 CREATE DATABASE fyfreactdb;
 
--- Move into the db
 \c fyfreactdb;
 
-CREATE TABLE "fyfreactapp_users" (
+CREATE TABLE "users" (
     "user_id" serial,   
-    "apikey" int,   
-    "users_name" text,   
+    "first_name" text,
+    "last_name" text,
     "username" text,   
     "password" text,   
     "email" text,   
@@ -51,25 +48,24 @@ CREATE TABLE "favorites" (
     )
 );
 
--- ALTER TABLE "activities" ADD CONSTRAINT "fk_activities_parks_id" FOREIGN KEY("parks_id")
--- REFERENCES "parks" ("parks_id");
 
 ALTER TABLE "favorites" ADD CONSTRAINT "fk_favorites_parks_id" FOREIGN KEY("parks_id")
 REFERENCES "parks" ("parks_id");
 
 ALTER TABLE "favorites" ADD CONSTRAINT "fk_favorites_user_id" FOREIGN KEY("user_id")
-REFERENCES "fyfreactapp_users" ("user_id");
+REFERENCES "users" ("user_id");
 
-CREATE INDEX "idx_users_Name"
-ON "fyfreactapp_users" ("users_name");
+CREATE INDEX "idx_username"
+ON "users" ("username");
 
-INSERT INTO fyfreactapp_users (APIKey, users_name, userName, password, email, state) 
+INSERT INTO users (first_name, last_name, username, password, email, state) 
 VALUES 
-(1234567, 'Stephanie', 'stephtest', 'test123','steph@test.com', 'NJ'),
-(2345678, 'Sammie', 'SamGirl', 'Squirrel12', 'squirrelluvr@doggie.com', 'LA' ),
-(9876543, 'Polly', 'PollyG', 'bbygirl1', 'pg@123.com', 'NJ'), 
-(5678901, 'Zach', 'ZakAttack', 'IrishMan1', 'irish@test.com', 'NV'), 
-(2938475, 'Mike', 'Dogwatcher', 'DogLuvr12', 'dogman@test.com', 'NJ');
+('Stephanie', 'my_last_name_here', 'stephtest', 'test123','steph@test.com', 'NJ'),
+('Sammie', 'my_last_name_here', 'SamGirl', 'Squirrel12', 'squirrelluvr@doggie.com', 'LA' ),
+('Polly', 'my_last_name_here', 'PollyG', 'bbygirl1', 'pg@123.com', 'NJ'), 
+('Zach', 'my_last_name_here', 'ZakAttack', 'IrishMan1', 'irish@test.com', 'NV'), 
+('Mike', 'my_last_name_here', 'Dogwatcher', 'DogLuvr12', 'dogman@test.com', 'NJ'),
+('Test', 'User', 'testuser', 'password', 'test@test.com', 'NJ');
 
 INSERT INTO parks (park_name, location, url, activities)
 VALUES 
